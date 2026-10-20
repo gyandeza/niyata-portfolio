@@ -53,3 +53,9 @@ Across all nine pages, open the floating `EXPLORE` mobile menu, follow two links
 **HOLD / NO-GO.** Automated source and build gates are green. Browser-level visual QA, unauthorized-access test, owner content approval and legacy-hosting review are still open. A `READY` Vercel deployment does not establish UX acceptance.
 
 **Next required evidence:** screenshot(s) or owner feedback for homepage and mobile navigation, plus confirmation that the unauthenticated staging URL presents an authentication challenge. Then resolve any visual or content defects on this QA branch, rerun CI, and request a separate explicit GO decision for production.
+
+## E. iPhone Safari screenshot review (owner-provided)
+
+Four owner screenshots show the homepage hero, expanded EXPLORE menu, RouteRisk hero and Flow Lab hero. Typography, grid, navigation content and editorial styling are visually consistent. **P1 defect:** the fixed bottom-right EXPLORE trigger visibly overlaps body copy and CTA area on the RouteRisk and Flow Lab heroes. The expanded menu is visible and populated, but link clicks were not demonstrated by screenshots. No evidence yet of calculator interactions or a signed-out access test.
+
+**QA branch remediation:** dock EXPLORE at the top-right of a sticky mobile header, suppress conflicting header CTAs on narrow viewports, open the menu below its trigger, and update the homepage system-map version label to V3.0. Automated regression assertions added to `tests/premerge-smoke.mjs`. **This is a code change on the QA branch only**, not the existing staging deployment. A new preview and repeat iPhone screenshot check are required before marking the visual gate PASS.
