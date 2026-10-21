@@ -193,3 +193,29 @@ The owner **explicitly approves** keeping `APRIL Group` and `PT Shimano Batam` a
 **Action required for legacy gate:** owner should check Netlify site inventory and any historical public deployment domains, including the `opvis.netlify.app` candidate, and report whether each site is unpublished/disabled or still accessible. If any legacy build exposes private material, hold release and obtain explicit authorization for hosting-side remediation; do not access or disclose its contents in the public QA notes.
 
 **Still pending:** owner credentials/teaching/research signoff, Netlify hosting exposure verification, optional additional device/accessibility review, and explicit production GO. Overall release remains **HOLD / NO-GO**. Draft PR only; no merge, production deploy or protection change.
+
+## N. STEP 4F.4 — Legacy Netlify hosting owner report (2026-10-21)
+
+**Owner report:** `Masih ada site atau deployment aktif.` No site names, URLs, project identifiers, exposure checks or screenshots supplied.
+
+**Gate result: HOLD — active historical deployment reported; scope and exposure unverified.** Do not infer that sensitive information is actually public, but do not mark legacy hosting cleared. A live deployment may serve files from older deploy artifacts independently of the now-private legacy GitHub repository.
+
+### Controlled read-only verification sequence
+
+1. **Identify each active site** in the owner's Netlify dashboard. Record site name and public `*.netlify.app` URL; optionally associated custom domain. Keep tokens, admin links, billing and credentials private.
+2. **Classify linkage:** whether each site is the old NIYATA/RouteRisk portfolio, unrelated project, or unknown; check connected repository and publish directory in Netlify dashboard, without changing settings.
+3. **Check exposure without disclosing content:** use signed-out/private browser to see whether the site homepage is publicly reachable. For confirmed old NIYATA deployments only, check whether legacy sensitive page paths can be accessed. Report only `accessible`, `404`, `auth required`, `unavailable` or `unknown`, not sensitive page contents.
+4. **If sensitive content is accessible:** classify as a privacy incident candidate; prioritize explicit owner-authorized unpublish/password protection/removal on the hosting platform. A repository visibility change alone is not sufficient. Avoid redistributing screenshots or sensitive data in a public PR.
+5. **If all historical deployments are proven absent/inaccessible:** record owner evidence and re-evaluate the legacy hosting gate; check any additional custom domains and historical aliases separately.
+
+**No destructive action authorized:** no Netlify delete, disable, unpublish, DNS modification, credential change, GitHub merge, production deployment, or Vercel protection change.
+
+### Release status
+
+- STEP 4F.1 signed-out Safari Private authentication: PASS (owner-tested).
+- STEP 4F.2 mobile navigation: PASS (owner-tested).
+- RouteRisk access hard-stop and Flow Lab starting-capacity warning: PASS (targeted screenshots).
+- Employer history naming with public-safe Connected Fiber Supply boundary: APPROVED (owner).
+- Credentials/teaching/research public claims: owner signoff pending.
+- Legacy Netlify exposure: **HOLD**, exact active site inventory missing.
+- Production: **NO-GO**. Draft PR stays unmerged.
