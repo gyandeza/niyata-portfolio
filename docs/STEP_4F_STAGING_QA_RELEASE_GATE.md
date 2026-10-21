@@ -219,3 +219,27 @@ The owner **explicitly approves** keeping `APRIL Group` and `PT Shimano Batam` a
 - Credentials/teaching/research public claims: owner signoff pending.
 - Legacy Netlify exposure: **HOLD**, exact active site inventory missing.
 - Production: **NO-GO**. Draft PR stays unmerged.
+
+## O. STEP 4F.4A — Exact legacy Netlify URLs supplied (2026-10-21)
+
+**Owner-supplied active legacy deployment URLs:**
+- `https://opvis.netlify.app`
+- `https://niyata.netlify.app`
+
+The owner previously reported that at least one legacy Netlify site/deployment remains active, but has **not yet confirmed which URL is reachable to a signed-out visitor**.
+
+### Read-only verification evidence and limits
+
+- Attempted to retrieve each site's root page via public web access: both returned fetch/cache-miss failures, **not an HTTP 404 or content verdict**.
+- Attempted direct HTTP HEAD for each root URL: both failed DNS resolution in the execution environment. **No claim of site unavailability or successful access can be made.**
+- Public search queries did not yield usable indexed content establishing which Netlify domain maps to which repository/build.
+- Inspected the now-private `gyandeza/Niyata` repository **without copying private page content into this public QA document**. It contains `index.html` (title `Niyata Consulting - Operational Intelligence for Modern Teams`), `RouteRisk.html` (`RouteRisk by Niyata - Route Risk Assessment and Transportation Intelligence`), `dashboard.html` (`Niyata Consulting - Dashboard`) and `Finance.html` (title `Personal Finance Dashboard`). This establishes a **potential sensitive legacy artifact**, but **does not prove** that `Finance.html` was published on either Netlify deployment.
+- Domain-to-product mapping is tentative: `niyata.netlify.app` likely NIYATA; `opvis.netlify.app` may be a separate operational-visibility project. **Neither mapping is verified by deployment metadata.**
+
+### Owner verification required (status only; no sensitive screenshots)
+
+For each Netlify site, open its **Netlify dashboard** entry, confirm the site name, connected repository (if any), publish directory, and whether the current/past published deploy file listing includes `Finance.html` or other private artifacts. Also use a signed-out browser to classify the homepage as `publicly visible`, `authentication required`, `404`, `unavailable`, or `unknown`.
+
+If the Netlify UI shows a sensitive file in a published deployment, treat as **potential exposure**; do not copy its contents into GitHub or this chat. Request explicit owner authorization before unpublishing, disabling, deleting or changing access controls. Older published deployment URLs and custom domains may require separate review.
+
+**Disposition:** legacy Netlify exposure gate **HOLD**; overall production **NO-GO**. No site changes, PR merge, Vercel production deploy, protection changes, or DNS modifications were performed.
