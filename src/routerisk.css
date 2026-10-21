@@ -757,3 +757,17 @@
     gap: 22px;
   }
 }
+
+/* A safety hold is not a high numerical score; render the override distinctly. */
+.rr-state-hold { border-top: 5px solid var(--rr-red); }
+.rr-state-hold .rr-risk-band strong { color: var(--rr-red); }
+.rr-hard-stop {
+  margin: 20px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--rr-red);
+  background: #f6eae6;
+  color: #632c22;
+  font-size: clamp(12px, 1.4vw, 15px);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
