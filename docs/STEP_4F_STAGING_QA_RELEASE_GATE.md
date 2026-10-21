@@ -91,3 +91,23 @@ The owner supplied two new iPhone screenshots from the updated Vercel QA preview
 - **Flow Lab:** `Source buffer capacity = 800 t`, `Initial source stock = 825 t`; result reads `BUFFER OVERFLOW` and the warning correctly identifies **25 t above capacity**. **Acceptance: PASS for starting-inventory warning.**
 
 These are screenshot-based confirmations of two targeted acceptance cases, not a complete mobile accessibility audit or validation of every interactive state. Remaining release blockers: verify all major pages/navigation and link targets on actual mobile, anonymous access/preview protection, privacy/content signoff and production authorization. **Do not merge or promote on the basis of these screenshots alone.**
+
+## I. Release gate audit — 2026-10-21 (follow-on)
+
+### Automated/source evidence — PASS with limits
+
+- `gyandeza/Niyata` repository API confirms **private**, GitHub Pages disabled; `gyandeza/niyata-portfolio` confirms **public**, GitHub Pages disabled. Old Netlify and any other external deployments are **not** covered by GitHub visibility changes.
+- PR #1 remains **open, draft, unmerged**. CI run `39526839250` passed on QA branch commit `142e1a48eaed4aa3bba54ca5a5919e497bd001cd`.
+- Vercel project `niyata-portfolio-preview`: `ssoProtection.enabled=true`, `deploymentType=all`; `passwordProtection.enabled=false`. Latest QA preview `https://niyata-portfolio-preview-g5yv0fk7c-giona.vercel.app` READY, Git SHA `142e1a48eaed4aa3bba54ca5a5919e497bd001cd`, `target=null` (not production).
+- Source-level navigation inspection confirms 10 mobile entries pointing to nine HTML entrypoints and a `#work` anchor; menu has `aria-expanded`, `aria-controls`, and Escape-to-close. CI premerge smoke covers internal paths/anchors. **Actual mobile link taps, focus navigation and desktop viewport still not verified.**
+- A targeted public-source inspection of the case-study and portfolio data plus 17 further source/doc files found no obvious inline API token pattern, hardcoded email address or personal-finance amount in the inspected material. **This is not a comprehensive secrets scan or a substitute for owner content approval.**
+- The public source intentionally mentions `APRIL Group` and `PT Shimano Batam` as professional history, and links to the public `gyandeza/ilras` GitHub repo. No confidential employer figures were observed in the reviewed Connected Fiber Supply data, but **owner approval is still required** for public professional claims and employer references.
+
+### Release blockers — HOLD / NO-GO
+
+1. **Signed-out browser challenge:** configuration is confirmed, but independent anonymous HTTP access test was unavailable; external fetch tools could not retrieve the protected deployment. The owner must test the QA URL in a genuinely signed-out/private session and confirm it redirects to Vercel authentication (without a bypass token).
+2. **Real-device link/function matrix:** tap Home, Selected work, About, RouteRisk, Flow Lab, Collaborate from EXPLORE; verify page titles, anchor offset, return navigation and interaction.
+3. **Owner content and privacy signoff:** professional employer naming, academic/research statuses, outbound project links, and public-safe case studies; check old Netlify deployments separately.
+4. **Production authorization:** keep PR draft and `main` unchanged until explicit owner approval. No release or alias promotion.
+
+**Result:** navigation and two lab acceptance screenshots PASS; configuration and CI PASS; production release remains **HOLD**.
