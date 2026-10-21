@@ -111,3 +111,31 @@ These are screenshot-based confirmations of two targeted acceptance cases, not a
 4. **Production authorization:** keep PR draft and `main` unchanged until explicit owner approval. No release or alias promotion.
 
 **Result:** navigation and two lab acceptance screenshots PASS; configuration and CI PASS; production release remains **HOLD**.
+
+## J. STEP 4F.1 — Owner privacy gate result (2026-10-21)
+
+**Owner-reported test:** iPhone Safari Private opened the protected NIYATA QA URL without an authenticated session and was presented with **Vercel Authentication**, not the portfolio content.
+
+**Decision: PASS — unauthenticated preview challenge, owner-tested.** This resolves the specific signed-out access blocker recorded in section I. The Vercel project API independently confirms `ssoProtection.enabled=true` with `deploymentType=all`.
+
+**Evidence scope:** owner attestation of a single Safari Private access path, not an independently captured HTTP trace, multi-browser penetration test, or confirmation that unrelated historical hosts are inaccessible. No bypass tokens or protection changes were requested.
+
+### Next evaluation — STEP 4F.2 Navigation & interaction acceptance
+
+Status: **PENDING**. Test on authenticated iPhone Safari using the latest QA branch preview. For each step, record PASS/FAIL and the observed destination or defect:
+
+| Case | Action | Expected |
+| --- | --- | --- |
+| NAV-01 | Open EXPLORE; tap About | `about.html` opens, correct header, menu closed |
+| NAV-02 | Open EXPLORE; tap Selected work | Homepage `#work` section visible, anchor not hidden by sticky header |
+| NAV-03 | Tap Research & writing, Teaching & speaking, Credentials | Each matching page opens with readable hero and no horizontal overflow |
+| NAV-04 | Tap Niyata Labs, then RouteRisk and Flow Lab | Both labs load with correct page identity |
+| NAV-05 | Tap Collaborate | Contact page opens and LinkedIn/GitHub external targets are as expected |
+| NAV-06 | Browser back/forward; open/close EXPLORE | State and scroll remain usable; menu does not obscure controls when closed |
+| LAB-01 | Change one RouteRisk factor from a non-blocked baseline, then set Accessibility=Blocked | Score updates; access hard-stop overrides weighted risk label |
+| LAB-02 | In Flow Lab, change initial stock above/below source buffer limit | Initial-overflow warning appears and clears appropriately |
+| LAB-03 | Flow Lab preset changes and resets | Outputs track inputs; no clipped slider values or units |
+
+**Other pending release gates:** owner approval of public employer/career/credential/research statements; audit of old Netlify and any other historical hosting; tablet/desktop responsiveness; explicit production authorization. Draft PR #1 remains open, unmerged. Do not deploy to production or alter protection.
+
+**Release disposition after STEP 4F.1:** **HOLD / NO-GO** for production. The *privacy sub-gate* is PASS, but full release acceptance is not complete.
