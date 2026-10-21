@@ -139,3 +139,31 @@ Status: **PENDING**. Test on authenticated iPhone Safari using the latest QA bra
 **Other pending release gates:** owner approval of public employer/career/credential/research statements; audit of old Netlify and any other historical hosting; tablet/desktop responsiveness; explicit production authorization. Draft PR #1 remains open, unmerged. Do not deploy to production or alter protection.
 
 **Release disposition after STEP 4F.1:** **HOLD / NO-GO** for production. The *privacy sub-gate* is PASS, but full release acceptance is not complete.
+
+## K. STEP 4F.2 — Owner mobile navigation acceptance (2026-10-21)
+
+**Owner result:** `Semua navigasi berhasil. Catatan: Tidak ada.` The owner completed the requested iPhone Safari navigation acceptance and reported all tested navigation passed with no issues.
+
+**Decision: PASS — owner-tested mobile navigation click-through.** Combined with the earlier screenshot checks, the targeted mobile navigation acceptance gate is closed. Scope: reported navigation paths in STEP 4F.2, not an independent cross-browser, tablet, desktop or automated end-to-end test.
+
+**No change to production:** PR #1 remains draft; no merge, production deployment, alias cutover or authentication changes authorized.
+
+## L. STEP 4F.3 — Public content & legacy hosting pre-signoff audit (2026-10-21)
+
+### Source inspection results
+
+- **Current public repo:** `gyandeza/niyata-portfolio` remains public with isolated clean history and nine site entrypoints. The old `gyandeza/Niyata` repository is private with GitHub Pages disabled.
+- **Legacy risk:** `Finance.html` remains in the old private repository. The legacy `index.html` contains personal WhatsApp contact links. Private GitHub status does not establish that older Netlify or cached third-party copies are gone. No exact historical Netlify hostname or site identifier was found in available project records or the old repository metadata; **legacy-hosting takedown cannot be verified**.
+- **Employer/career references requiring owner signoff:** `src/data/about.js` explicitly names APRIL Group and PT Shimano Batam. `src/data/connectedFiberCaseStudy.js` describes six abstract workstreams without detailed operating figures/vendor names in the inspected content. Employer-safe wording remains an owner judgment, not a technical guarantee.
+- **Professional/research claims requiring owner signoff:** teaching and institutional names, achieved IPP / Six Sigma GB, PMP `IN PREPARATION`, IPM `DEVELOPMENT PATH`, and ILRAS prototype/methodology limitations. The data files explicitly distinguish in-progress and achieved statuses.
+- **Outbound references requiring owner signoff:** LinkedIn `https://id.linkedin.com/in/gilangyandeza`, GitHub `https://github.com/gyandeza`, and public ILRAS repo `https://github.com/gyandeza/ilras`. Review their public visibility and suitability separately.
+- **Source inspection limitations:** text-level spot review of principal content modules and outbound URLs; not an exhaustive security scan, browser link crawl, screenshot review or owner approval.
+
+### Pending signoffs / controls
+
+1. **Owner content approval:** employer names and professional history, credentials and institution references, product/research claims and external links.
+2. **Legacy Netlify inventory:** obtain exact site URLs or Netlify dashboard project names and verify whether each historical deployment is offline, access-protected, or contains archived sensitive pages; do not assume a suspended site remains offline.
+3. **Additional responsiveness:** tablet/desktop and accessibility, especially RouteRisk HOLD-state legibility under mobile Safari controls.
+4. **Explicit production GO:** separately required even after all prior checks pass.
+
+**Disposition:** STEP 4F.1 privacy PASS; STEP 4F.2 navigation PASS; two targeted lab scenarios PASS; STEP 4F.3 content/legacy-hosting review **PENDING OWNER SIGNOFF**. Overall **HOLD / NO-GO**.
