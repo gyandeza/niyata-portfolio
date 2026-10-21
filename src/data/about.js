@@ -136,15 +136,14 @@ export const aboutNarrative = {
     'Python / Excel for analysis and prototyping',
   ],
   teaching: {
-    headline: 'Practice should be reusable as knowledge.',
+    headline: 'Connecting Industry Practice with Academic Learning.',
     copy:
-      'Alongside industry work, I have taught as a practitioner lecturer across engineering and management contexts. Teaching forces a useful discipline: if an idea cannot be explained clearly, its logic may not yet be clear enough.',
+      'My teaching experience includes contributions as an online tutor, practitioner lecturer and industry practitioner in higher education, connecting engineering and management concepts with real-world operational challenges.',
     institutions: [
-      'Universitas Terbuka — Tutor',
-      'Politeknik Negeri Batam',
-      'Politeknik Negeri Bandung',
-      'Universitas 17 Agustus 1945 Samarinda',
-      'Universitas Muhammadiyah Pare-Pare',
+      'Universitas Terbuka — Online Tutor',
+      'Politeknik Negeri Batam — Practitioner Lecturer',
+      'Universitas Trunojoyo Madura (UTM) — Industry Practitioner / Praktisi Mengajar',
+      'Universitas Singaperbangsa Karawang (UNSIKA) — Industry Practitioner / Praktisi Mengajar',
     ],
   },
 }
