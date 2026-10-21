@@ -82,3 +82,12 @@ Two screenshots from the **QA preview** show the homepage with EXPLORE closed an
 **UI observation:** Input labels, units and output sections remain readable on the supplied mobile screenshots. The circular black right-edge widget remains unverified as an environment control, not yet a confirmed NIYATA element.
 
 **QA evidence boundary:** screenshots show input/output states, but do not establish complete input-change causality or correctness of all 13 Flow Lab inputs. CI and fresh preview must pass after these changes, followed by another mobile check. Production remains HOLD.
+
+## H. Owner mobile retest — PASS (2026-10-21, iPhone)
+
+The owner supplied two new iPhone screenshots from the updated Vercel QA preview:
+
+- **RouteRisk:** `Accessibility = Blocked / unverified — 90` with low values on other visible factors; weighted score `26/100` but action correctly reads `DO NOT DISPATCH / VERIFY ACCESS` with a HOLD state. **Acceptance: PASS for access hard-stop semantics.** The HOLD state text is partly hidden by Safari's bottom toolbar in the screenshot; verify visibility by scrolling and improve contrast/spacing if needed.
+- **Flow Lab:** `Source buffer capacity = 800 t`, `Initial source stock = 825 t`; result reads `BUFFER OVERFLOW` and the warning correctly identifies **25 t above capacity**. **Acceptance: PASS for starting-inventory warning.**
+
+These are screenshot-based confirmations of two targeted acceptance cases, not a complete mobile accessibility audit or validation of every interactive state. Remaining release blockers: verify all major pages/navigation and link targets on actual mobile, anonymous access/preview protection, privacy/content signoff and production authorization. **Do not merge or promote on the basis of these screenshots alone.**
