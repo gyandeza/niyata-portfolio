@@ -59,3 +59,16 @@ Across all nine pages, open the floating `EXPLORE` mobile menu, follow two links
 Four owner screenshots show the homepage hero, expanded EXPLORE menu, RouteRisk hero and Flow Lab hero. Typography, grid, navigation content and editorial styling are visually consistent. **P1 defect:** the fixed bottom-right EXPLORE trigger visibly overlaps body copy and CTA area on the RouteRisk and Flow Lab heroes. The expanded menu is visible and populated, but link clicks were not demonstrated by screenshots. No evidence yet of calculator interactions or a signed-out access test.
 
 **QA branch remediation:** dock EXPLORE at the top-right of a sticky mobile header, suppress conflicting header CTAs on narrow viewports, open the menu below its trigger, and update the homepage system-map version label to V3.0. Automated regression assertions added to `tests/premerge-smoke.mjs`. **This is a code change on the QA branch only**, not the existing staging deployment. A new preview and repeat iPhone screenshot check are required before marking the visual gate PASS.
+
+## F. iPhone Safari retest — header-docked navigation (owner-provided, 2026-10-21)
+
+Two screenshots from the **QA preview** show the homepage with EXPLORE closed and open. Observed:
+
+- **PASS (visual):** EXPLORE is in the upper-right header rather than bottom-right over hero text; Connect no longer competes for that header space.
+- **PASS (visual):** open panel begins immediately below header, stays within the viewport horizontally and displays all ten navigation entries; CLOSE is visible.
+- **PASS (visual):** homepage hero and primary CTA remain unobscured with the menu closed.
+- **PASS (visual):** System Map footer reads `V3.0`, confirming the corrected build is loaded.
+- **OBSERVATION:** a separate circular black floating control is visible on the right edge at mid-screen; likely associated with the preview environment, but attribution and production absence **not verified**.
+- **NOT TESTED:** link destination clicks, keyboard interaction, route-risk calculator, flow-lab controls, desktop/tablet responsive layouts, signed-out authentication challenge, and owner content signoff.
+
+**Disposition:** close the original **P1 mobile bottom-overlay defect** based on visual retest. Keep **STEP 4F release gate HOLD / NO-GO** until remaining functional, privacy, and content acceptance checks pass. The PR remains draft; no merge or production promotion.
