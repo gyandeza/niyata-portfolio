@@ -72,3 +72,13 @@ Two screenshots from the **QA preview** show the homepage with EXPLORE closed an
 - **NOT TESTED:** link destination clicks, keyboard interaction, route-risk calculator, flow-lab controls, desktop/tablet responsive layouts, signed-out authentication challenge, and owner content signoff.
 
 **Disposition:** close the original **P1 mobile bottom-overlay defect** based on visual retest. Keep **STEP 4F release gate HOLD / NO-GO** until remaining functional, privacy, and content acceptance checks pass. The PR remains draft; no merge or production promotion.
+
+## G. Interactive Labs mobile screenshot review (owner-provided, 2026-10-21)
+
+**RouteRisk screenshot:** iPhone renders editable factor selectors, accessibility `Blocked / unverified — 90`, and weighted output `42/100 WATCH`. This exposes a P0/P1 model-semantics defect: a blocked/unverified route could be shown as merely WATCH because a weighted average dilutes an access hard stop. **QA branch fix:** retain the inspectable weighted score but override dispatch action to `DO NOT DISPATCH / VERIFY ACCESS` when accessibility = 90, and similarly hold on critical safety warning = 90. Both are explicitly illustrative safeguards; not a certified dispatch safety rule. Regression tests added.
+
+**Flow Lab screenshot:** `initialStock=825 t`, `stockpileCapacity=800 t`, `destinationDemand=225 t/day`; interface displays `BUFFER OVERFLOW`. This is consistent with the existing end-of-day overflow model, but the starting condition itself is already 25 t above stated physical capacity. **QA branch fix:** expose `initialStockExcess` separately, warn even if end-of-day inventory is later below capacity, and clarify that intraday stock peaks are not modeled. Regression tests added.
+
+**UI observation:** Input labels, units and output sections remain readable on the supplied mobile screenshots. The circular black right-edge widget remains unverified as an environment control, not yet a confirmed NIYATA element.
+
+**QA evidence boundary:** screenshots show input/output states, but do not establish complete input-change causality or correctness of all 13 Flow Lab inputs. CI and fresh preview must pass after these changes, followed by another mobile check. Production remains HOLD.
