@@ -167,3 +167,29 @@ Status: **PENDING**. Test on authenticated iPhone Safari using the latest QA bra
 4. **Explicit production GO:** separately required even after all prior checks pass.
 
 **Disposition:** STEP 4F.1 privacy PASS; STEP 4F.2 navigation PASS; two targeted lab scenarios PASS; STEP 4F.3 content/legacy-hosting review **PENDING OWNER SIGNOFF**. Overall **HOLD / NO-GO**.
+
+## M. STEP 4F.3 — Employer naming approval and historical-hosting follow-up (2026-10-21)
+
+### Owner-approved scope
+
+The owner **explicitly approves** keeping `APRIL Group` and `PT Shimano Batam` as **employment history** on the public portfolio. The `Connected Fiber Supply` case study is permitted **only in public-safe, abstract form**: no confidential operating figures, vendor identities/commercial terms, internal systems, route-level details, proprietary diagrams, screenshots, or unverified performance claims.
+
+**Disposition: PASS — employer-name/content-boundary signoff for the existing inspected text only.** This is not permission to publish private enterprise files or expand operational specificity. The current `src/data/about.js` professional anchors and `src/data/connectedFiberCaseStudy.js` abstractions fit this stated scope in the source-level review; do not silently expand the content.
+
+### Additional credentials/research audit
+
+- `src/data/credentials.js`: IPP and Six Sigma Green Belt marked `ACHIEVED`; PMP marked `IN PREPARATION`; IPM marked `DEVELOPMENT PATH`. These are clearly distinguished; owner still needs to approve public claims and organization memberships.
+- `src/data/knowledge.js`: Universitas Terbuka tutor role and prior lecturer institutions; research directions marked `IN PROGRESS` or `WORKING NOTE`, not misrepresented as publications. Owner signoff still pending.
+- `src/data/ilrasCaseStudy.js`: explicitly identifies pilot limitations, no validated production-level persistence and no claimed government adoption or quantified impact.
+- The source-level public-safety assessment is not a guarantee of completeness or external employer approval.
+
+### Historical hosting investigation
+
+- Historical chat references a deployed Netlify hostname `https://opvis.netlify.app`. This is a **candidate legacy deployment**; whether it is the same repository/build or ever included `Finance.html` has **not been established**.
+- Historical portfolio material also referenced `https://gyandeza.github.io/Niyata/index.html`; the legacy GitHub repository is now private and GitHub Pages is disabled, but historical page/cache availability was not independently established.
+- Attempted read-only checks of `https://opvis.netlify.app/`, `https://opvis.netlify.app/Finance.html`, `https://gyandeza.github.io/Niyata/index.html` and `https://gyandeza.github.io/Niyata/Finance.html`. Public webpage fetch returned inaccessible/cache-miss, and independent HTTP HEAD probes failed due to DNS resolution limits in the execution environment. **Do not interpret these tool failures as proof of HTTP 404, site takedown, or safety.**
+- Legacy `Finance.html` remains in the **private** `gyandeza/Niyata` repository. No deletion or history rewrite authorized. A private repository does not revoke older Netlify/CDN builds.
+
+**Action required for legacy gate:** owner should check Netlify site inventory and any historical public deployment domains, including the `opvis.netlify.app` candidate, and report whether each site is unpublished/disabled or still accessible. If any legacy build exposes private material, hold release and obtain explicit authorization for hosting-side remediation; do not access or disclose its contents in the public QA notes.
+
+**Still pending:** owner credentials/teaching/research signoff, Netlify hosting exposure verification, optional additional device/accessibility review, and explicit production GO. Overall release remains **HOLD / NO-GO**. Draft PR only; no merge, production deploy or protection change.
