@@ -12,8 +12,7 @@ export const credentials = {
       purpose: 'Professional engineering identity and applied technical foundation.',
       items: [
         { name: 'Insinyur Profesional Pratama (IPP)', status: 'ACHIEVED', type: 'Professional credential' },
-        { name: 'Industrial Engineering', status: 'FOUNDATION', type: 'Academic / professional field' },
-        { name: 'Industrial automation / PLC', status: 'PRACTICAL', type: 'Technical capability' },
+        { name: 'Industrial Automation & PLC', status: 'PRACTICAL EXPERIENCE', type: 'Technical capability' },
       ],
     },
     {
@@ -22,8 +21,8 @@ export const credentials = {
       purpose: 'Structured improvement, analysis and evidence-based problem solving.',
       items: [
         { name: 'Six Sigma Green Belt', status: 'ACHIEVED', type: 'Improvement credential' },
-        { name: 'Power BI · Metabase · Minitab', status: 'PRACTICAL', type: 'Analytics toolkit' },
-        { name: 'Python · Excel', status: 'PRACTICAL', type: 'Analysis / prototyping' },
+        { name: 'Data Analytics & Visualization — Power BI, Metabase, Minitab', status: 'PRACTICAL EXPERIENCE', type: 'Analytics toolkit' },
+        { name: 'Data Analysis & Prototyping — Python, Excel', status: 'PRACTICAL EXPERIENCE', type: 'Analysis / prototyping' },
       ],
     },
     {
@@ -31,9 +30,8 @@ export const credentials = {
       title: 'Project Delivery',
       purpose: 'Planning, coordination, issue management and project governance.',
       items: [
-        { name: 'MS Project', status: 'PRACTICAL', type: 'Planning toolkit' },
-        { name: 'Jira · Confluence', status: 'PRACTICAL', type: 'Delivery / collaboration toolkit' },
-        { name: 'PMP', status: 'IN PREPARATION', type: 'Credential pathway' },
+        { name: 'Project Planning — Microsoft Project', status: 'PRACTICAL EXPERIENCE', type: 'Planning toolkit' },
+        { name: 'Project Collaboration — Jira, Confluence', status: 'PRACTICAL EXPERIENCE', type: 'Delivery / collaboration toolkit' },
       ],
     },
     {
@@ -41,44 +39,44 @@ export const credentials = {
       title: 'Technical Systems',
       purpose: 'Hands-on familiarity with engineering and digital-system tools.',
       items: [
-        { name: 'Mitsubishi PLC FX3U / FX5U', status: 'PRACTICAL', type: 'Automation' },
-        { name: 'Kepware / IIoT concepts', status: 'PRACTICAL', type: 'Industrial connectivity' },
-        { name: 'AutoCAD · Inventor / Nastran', status: 'PRACTICAL', type: 'Engineering toolkit' },
+        { name: 'Industrial Automation — Mitsubishi PLC FX3U / FX5U', status: 'PRACTICAL EXPERIENCE', type: 'Automation' },
+        { name: 'Industrial Connectivity — Kepware / IIoT', status: 'PRACTICAL EXPERIENCE', type: 'Industrial connectivity' },
+        { name: 'Engineering Design & Simulation — AutoCAD, Inventor, Nastran', status: 'PRACTICAL EXPERIENCE', type: 'Engineering toolkit' },
       ],
     },
   ],
   pathways: [
     {
-      title: 'PMP',
-      status: 'IN PREPARATION',
-      copy: 'Professional project-management credential preparation based on documented project experience and evidence.',
+      title: 'Project Management Professional (PMP)',
+      status: 'PROFESSIONAL DEVELOPMENT',
+      copy: 'Professional development toward PMP certification, supported by structured documentation of project-management experience. Not an achieved credential.',
     },
     {
       title: 'IPP → IPM',
-      status: 'DEVELOPMENT PATH',
-      copy: 'Professional-engineer portfolio development toward the next competency level; not presented as an achieved IPM credential.',
+      status: 'PROFESSIONAL DEVELOPMENT',
+      copy: 'Continued professional engineering development toward the Insinyur Profesional Madya (IPM) competency level. Not an achieved IPM credential.',
     },
   ],
   organizations: [
     {
       group: 'ENGINEERING',
       name: 'Persatuan Insinyur Indonesia (PII)',
-      context: 'Selected regional / branch professional involvement.',
+      context: 'Professional involvement in engineering communities.',
     },
     {
       group: 'INDUSTRIAL ENGINEERING',
       name: 'BKTI — PII',
-      context: 'Industrial-engineering professional community involvement.',
+      context: 'Industrial engineering professional engagement.',
     },
     {
       group: 'SYSTEMS ENGINEERING',
       name: 'MSESI',
-      context: 'Systems-engineering professional community.',
+      context: 'Systems engineering community involvement.',
     },
     {
       group: 'PROJECT MANAGEMENT',
       name: 'PMO Insight',
-      context: 'Project / PMO professional community.',
+      context: 'Project management and PMO community engagement.',
     },
   ],
 }
