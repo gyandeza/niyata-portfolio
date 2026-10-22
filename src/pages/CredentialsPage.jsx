@@ -22,8 +22,8 @@ export default function CredentialsPage() {
               <p className="cred-hero-copy">{c.hero.copy}</p>
               <div className="cred-status-key">
                 <div><span>ACHIEVED</span><p>Credential completed.</p></div>
-                <div><span>PRACTICAL</span><p>Used / trained capability; not presented as a formal credential.</p></div>
-                <div><span>IN PREPARATION</span><p>Active credential pathway, not yet achieved.</p></div>
+                <div><span>PRACTICAL EXPERIENCE</span><p>Used / trained capability; not presented as a formal credential.</p></div>
+                <div><span>PROFESSIONAL DEVELOPMENT</span><p>Future credential pathway; not an achieved certification.</p></div>
               </div>
             </div>
           </div>
