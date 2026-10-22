@@ -4,8 +4,8 @@ export const aboutNarrative = {
   intro:
     'I am an industrial engineer working at the intersection of operations, supply chain, digital transformation, project delivery and applied intelligence. My work usually begins with a real operating problem: a handoff that is unclear, a process that cannot be seen end to end, a decision that depends on fragmented information, or a digital initiative that has gone live but has not yet become the way people work.',
   education: [
-    'B.Eng. — Industrial Engineering',
-    'M.Sc. — Strategic Management',
+    'S.T. — Industrial Engineering',
+    'M.M. — Strategic Management',
   ],
   professionalAnchors: [
     {
@@ -130,10 +130,10 @@ export const aboutNarrative = {
   selectedCredentials: [
     'Insinyur Profesional Pratama (IPP)',
     'Six Sigma Green Belt',
-    'Industrial automation / PLC exposure',
-    'Power BI / Metabase / analytics tools',
-    'MS Project · Jira · Confluence',
-    'Python / Excel for analysis and prototyping',
+    'Industrial Automation & PLC — Practical Experience',
+    'Data Analytics — Power BI, Metabase, Minitab',
+    'Project Tools — Microsoft Project, Jira, Confluence',
+    'Data Analysis & Prototyping — Python, Excel',
   ],
   teaching: {
     headline: 'Connecting Industry Practice with Academic Learning.',
