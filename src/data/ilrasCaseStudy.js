@@ -1,9 +1,9 @@
 export const ilrasCaseStudy = {
   eyebrow: 'FLAGSHIP CASE STUDY / IL-02',
   title: 'ILRAS',
-  subtitle: 'Regional Intelligence & Decision Support',
+  subtitle: 'Regional Intelligence & Decision Support — Working Pilot',
   thesis:
-    'A transparent GIS-enabled decision-support system for comparing regional readiness, exploring scenarios and surfacing investment priorities without hiding the assumptions behind the score.',
+    'A GIS-enabled decision-support pilot designed to make regional-readiness comparisons, scenarios and scoring assumptions transparent.',
   role: [
     'Product concept & problem framing',
     'System and information architecture',
@@ -43,12 +43,12 @@ export const ilrasCaseStudy = {
     {
       no: '04',
       title: 'GIS intelligence',
-      copy: 'Uses OpenStreetMap roads, BNPB InaRisk overlays and a path toward official BIG administrative boundaries while keeping source caveats visible.',
+      copy: 'Integrates or explores public GIS sources, with availability and layer behavior subject to runtime verification.',
     },
     {
       no: '05',
       title: 'Methodology transparency',
-      copy: 'The current equal-weight baseline, citations, limitations and future AHP path are exposed as part of the product rather than hidden in code.',
+      copy: 'The seven-dimension equal-weight baseline, citations and limitations are presented transparently; expert-derived weighting, including AHP, remains a future validation pathway.',
     },
     {
       no: '06',
@@ -90,6 +90,8 @@ export const ilrasCaseStudy = {
     'Equal weighting is an intentional baseline, not the final expert-validated methodology.',
     'Some official boundary queries are schema-verified but still need live runtime verification.',
   ],
+  maturityStatement:
+    'ILRAS is an evolving decision-support pilot. Its current methodology uses seven readiness dimensions with equal weighting as a transparent baseline. Expert-derived weighting, including a potential AHP approach, remains a future validation pathway. The system is not presented as a government-adopted platform, a validated investment recommendation engine, or production-ready infrastructure. Data coverage, third-party GIS integrations, and persistence capabilities remain subject to documented limitations and further verification.',
   proof:
-    'The project demonstrates a working end-to-end decision-support architecture and an explainability-first product philosophy. It does not claim proven government adoption or quantified economic impact.',
+    'The pilot demonstrates an integrated decision-support workflow and an explainability-first design approach, subject to its documented data, methodology and infrastructure limitations.',
 }
