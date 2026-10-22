@@ -171,7 +171,7 @@ export default function AboutPage() {
         </section>
 
         <section className="about-section about-credentials">
-          <div className="about-section-label"><span>05</span><p>SELECTED CREDENTIALS & TOOLS</p></div>
+          <div className="about-section-label"><span>05</span><p>CREDENTIALS & TECHNICAL CAPABILITIES</p></div>
           <div className="about-credential-layout">
             <div>
               <h2>Credentials support the work. They are not the portfolio.</h2>

@@ -70,6 +70,11 @@ for (const dataFile of ['src/data/content.js', 'src/data/labs.js']) {
   }
 }
 assert.ok(existsSync(resolve(root, 'src/components/site-mobile-nav.css')))
+const mobileNavCss = source('src/components/site-mobile-nav.css')
+assert.match(mobileNavCss, /top:\s*12px/, 'mobile navigation must dock at header, not bottom overlay')
+assert.match(mobileNavCss, /flex-direction:\s*column-reverse/, 'mobile menu should open below trigger')
+assert.match(mobileNavCss, /\.rr-nav-action[\s\S]*?\.flowlab-nav-cta[\s\S]*?display:\s*none/, 'mobile header CTA collision must be prevented')
+assert.doesNotMatch(mobileNavCss, /bottom:\s*calc\(16px/, 'bottom floating nav must not return')
 assert.ok(existsSync(resolve(root, 'src/components/SiteMobileNav.jsx')))
 assert.ok(!existsSync(resolve(root, 'Finance.html')), 'private legacy finance asset must not be inside new app')
 console.log(`PASS: 9 HTML entries, mobile nav mounting, metadata and ${checked} internal links`)

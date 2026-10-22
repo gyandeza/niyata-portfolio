@@ -3,10 +3,11 @@
   .niyata-mobile-nav {
     position: fixed;
     right: 16px;
-    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    top: 12px;
+    bottom: auto;
     z-index: 1000;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: flex-end;
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
@@ -31,13 +32,14 @@
     display: flex;
     flex-direction: column;
     width: min(320px, calc(100vw - 32px));
-    max-height: min(70vh, 560px);
+    max-height: min(calc(100dvh - 96px), 560px);
     overflow-y: auto;
     overscroll-behavior: contain;
     background: #faf9f4;
     border: 1px solid #a8aea5;
     box-shadow: 0 10px 40px rgba(0,0,0,.22);
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
     padding: 12px;
   }
   .niyata-mobile-nav nav p {
@@ -69,4 +71,39 @@
     outline: 3px solid #147a5b;
     outline-offset: 3px;
   }
+}
+
+/* STEP 4F — iPhone Safari visual QA: dock the mobile menu in the header.
+   The former bottom-right floating control covered hero copy and primary CTAs.
+   Keep a persistent header backdrop on all nine entrypoints while scrolling. */
+@media (max-width: 980px) {
+  .topbar,
+  .about-nav,
+  .knowledge-nav,
+  .cred-nav,
+  .labs-nav,
+  .rr-nav,
+  .flowlab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: #f3f1ea;
+  }
+  .nav-cta,
+  .about-nav-cta,
+  .knowledge-nav-cta,
+  .cred-nav-cta,
+  .labs-nav-cta,
+  .rr-nav-action,
+  .flowlab-nav-cta {
+    display: none;
+  }
+  .niyata-mobile-nav > button {
+    min-width: 116px;
+    min-height: 44px;
+  }
+}
+@media (max-width: 380px) {
+  .niyata-mobile-nav { right: 12px; }
+  .niyata-mobile-nav > button { min-width: 102px; gap: 10px; }
 }

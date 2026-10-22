@@ -172,9 +172,12 @@ export default function IlrasCaseStudy() {
           </div>
           <div className="limits-layout">
             <h3>A portfolio case study should show the boundary of the system, not hide it.</h3>
-            <ol>
-              {cs.limits.map((item) => <li key={item}>{item}</li>)}
-            </ol>
+            <div>
+              <ol>
+                {cs.limits.map((item) => <li key={item}>{item}</li>)}
+              </ol>
+              <p>{cs.maturityStatement}</p>
+            </div>
           </div>
         </div>
 
