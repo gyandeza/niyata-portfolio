@@ -18,7 +18,7 @@ export const researchWriting = {
       title: 'Supply Chain Decision Intelligence',
       status: 'IN PROGRESS',
       copy:
-        'Research direction around how operational signals, uncertainty and decision rules can be structured into transparent support for complex supply-chain decisions.',
+        'An ongoing research direction exploring how operational signals, uncertainty and decision rules can support transparent supply-chain decisions.',
       boundary:
         'Public description only. Unreleased model details, novelty claims and enterprise data remain outside the portfolio.',
     },
@@ -45,7 +45,7 @@ export const researchWriting = {
       title: 'Decision Models, GIS & Regional Intelligence',
       status: 'IN PROGRESS',
       copy:
-        'Explainable regional-readiness and logistics intelligence through composite indicators, GIS context and scenario analysis.',
+        'Ongoing applied research and prototype development exploring explainable regional-readiness assessment, GIS context and scenario analysis.',
       boundary:
         'Represented publicly through ILRAS and related methodology notes.',
     },
