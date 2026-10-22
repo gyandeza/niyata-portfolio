@@ -253,3 +253,14 @@ If the Netlify UI shows a sensitive file in a published deployment, treat as **p
 - **QA branch source implementation:** changed only `src/data/about.js`, `src/data/credentials.js`, `src/pages/CredentialsPage.jsx`, and `src/pages/AboutPage.jsx` for the approved education/credentials content. Removed duplicate PMP from credential group; retained it in Pathways. Academic foundation is covered by About Education, not duplicated as a formal credential.
 - **Review limitations:** issuing organizations and original certificates were not independently audited; content status reflects owner approval. Research/ILRAS content signoff remains pending.
 - **Production gate:** HOLD / NO-GO. This update does not authorize merge, production deployment, protection change or destructive legacy-hosting action. Verify new commit CI and owner visual regression before closing this implementation gate.
+
+## Q. STEP 4F.7C — Research & ILRAS owner-approved content implementation (2026-10-22)
+
+**Owner decisions:** Research=approve; ILRAS positioning=approve; GIS claims=conservative; confidentiality=retain. Owner explicitly authorized implementation only on `qa/step-4f-staging-release-gate`, limited to `src/data/knowledge.js`, `src/data/ilrasCaseStudy.js`, and this QA document. No merge, production deployment, Vercel protection change, scoring engine/API/database change permitted.
+
+**Applied changes:**
+- `src/data/knowledge.js`: R-01 and R-04 public research descriptions revised to distinguish ongoing directions and prototype development from completed publications. R-02, R-03, R-05, all five status labels, writing streams, teaching content and five confidentiality/IP firewall rules retained.
+- `src/data/ilrasCaseStudy.js`: Working Pilot subtitle; conservative thesis; GIS integration caveat; explicit equal-weight baseline and future expert/AHP validation; bounded proof. Added `maturityStatement` data property with non-production/non-adoption/non-validation caveats.
+- **Display caveat:** new `maturityStatement` property may not be rendered by existing page UI; source-data presence is not visual confirmation. Rendering it may require a separate UI-source authorization. No UI source changed in this gate.
+- **Claim regression to verify:** no government adoption, quantified economic impact, production readiness, expert-validated weighting, guaranteed live GIS integration or publication completion claimed. GIS runtime integration remains unverified.
+- **Release verification:** CI and preview visual QA must be checked against final commit. Do not mark full visual gate PASS without observed rendering. Overall production remains **HOLD / NO-GO**.
