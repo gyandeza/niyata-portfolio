@@ -155,3 +155,20 @@ This section supersedes the earlier pending candidate-binding statement and reco
 **Recovery boundary:** there is still no verified successful production baseline. The old staging build predates safeguards and is not an approved rollback. Keep historical hosting unchanged. Before first release, approve either an eligible tested production fallback or a tested restoration/withdrawal procedure; do not promise instant rollback without verifying eligibility.
 
 **Disposition:** application-candidate visual binding CLOSED (owner-confirmed); lockfile/CI implementation locally PASS, hosted checks pending; main enforcement and production configuration remain pending. Overall merge/production HOLD. Post-commit CI and deployment evidence belongs in the PR description to avoid a self-referential documentation-commit loop.
+
+## 10. STEP 4F.7D — controlled merge/deployment separation (2026-11-08)
+
+The owner explicitly authorized adding `git.deploymentEnabled.main=false` to `vercel.json` on the QA branch. All pre-existing framework, build/output and security-header settings are retained. No application or dependency change is included in this step.
+
+### Verified controls and platform evidence
+
+- Main branch protection was created in authenticated GitHub UI: require a PR, require GitHub Actions `validate`, require up-to-date branches, enforce for administrators, disallow force pushes/deletions, and no additional human-approval count. GitHub confirmed creation; the branch API reports protected=true with `validate` bound to GitHub Actions app 15368 and enforcement for everyone. The full protection API is unavailable to the connector (403); remaining details were verified in the UI. This supersedes the earlier pending main-protection status.
+- Authenticated Vercel UI confirmed repository `gyandeza/niyata-portfolio`, production branch `main`, and enabled automatic production-domain assignment. The project overview stated No Production Deployment and no production traffic. Production environment lists `niyata-portfolio-preview.vercel.app`. No Vercel dashboard setting was changed.
+- The repository configuration now disables Git-triggered deployments for the exact `main` branch; unspecified branches remain enabled under Vercel's documented behavior. The QA branch should continue receiving previews.
+- This file change is currently only on the QA branch. Main has not received it; do not describe the current main configuration as already protected from automatic deployment. Before any merge, inspect the final merge contents and confirm they retain `git.deploymentEnabled.main=false`.
+- CI and a fresh QA preview must pass on the resulting commit. They verify configuration/build acceptance and continued QA deployment; no actual main push or production deployment is performed to test suppression.
+- The setting controls Git-triggered deployments. It does not prohibit separately authorized manual/CLI deployments, constitute an organization-wide production lock, or change SSO protection.
+- Production promotion/deployment, domain assignment changes, Netlify changes and PR merge remain separately authorized actions. Auto-assignment is still enabled in Vercel, so a later manual production deployment requires an explicit traffic/alias plan.
+- Production rollback remains unverified because no successful production baseline exists. The older staging baseline is not an approved production rollback.
+
+**Gate:** targeted owner regression acceptance of the lockfile rebuild, a first-release recovery plan and explicit merge approval remain pending. Production release approval is separate. No independent visual QA is claimed. Post-commit CI/preview verification is recorded in the PR description to avoid a self-referential documentation commit.
