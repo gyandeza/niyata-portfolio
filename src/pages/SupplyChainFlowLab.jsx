@@ -154,6 +154,11 @@ export default function SupplyChainFlowLab() {
                 <span>BINDING SIGNAL</span>
                 <strong>{result.constraint}</strong>
                 <p>{result.constraintDetail}</p>
+                {result.initialStockExcess > 0 && (
+                  <p className="flowlab-initial-warning" role="status">
+                    STARTING CAPACITY EXCEEDED: initial stock is {round(result.initialStockExcess)} t above the source buffer limit. The model does not simulate intraday stock peaks.
+                  </p>
+                )}
               </div>
 
               <div className="flowlab-metrics">

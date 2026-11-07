@@ -4,8 +4,8 @@ export const aboutNarrative = {
   intro:
     'I am an industrial engineer working at the intersection of operations, supply chain, digital transformation, project delivery and applied intelligence. My work usually begins with a real operating problem: a handoff that is unclear, a process that cannot be seen end to end, a decision that depends on fragmented information, or a digital initiative that has gone live but has not yet become the way people work.',
   education: [
-    'B.Eng. — Industrial Engineering',
-    'M.Sc. — Strategic Management',
+    'S.T. — Industrial Engineering',
+    'M.M. — Strategic Management',
   ],
   professionalAnchors: [
     {
@@ -130,21 +130,20 @@ export const aboutNarrative = {
   selectedCredentials: [
     'Insinyur Profesional Pratama (IPP)',
     'Six Sigma Green Belt',
-    'Industrial automation / PLC exposure',
-    'Power BI / Metabase / analytics tools',
-    'MS Project · Jira · Confluence',
-    'Python / Excel for analysis and prototyping',
+    'Industrial Automation & PLC — Practical Experience',
+    'Data Analytics — Power BI, Metabase, Minitab',
+    'Project Tools — Microsoft Project, Jira, Confluence',
+    'Data Analysis & Prototyping — Python, Excel',
   ],
   teaching: {
-    headline: 'Practice should be reusable as knowledge.',
+    headline: 'Connecting Industry Practice with Academic Learning.',
     copy:
-      'Alongside industry work, I have taught as a practitioner lecturer across engineering and management contexts. Teaching forces a useful discipline: if an idea cannot be explained clearly, its logic may not yet be clear enough.',
+      'My teaching experience includes contributions as an online tutor, practitioner lecturer and industry practitioner in higher education, connecting engineering and management concepts with real-world operational challenges.',
     institutions: [
-      'Universitas Terbuka — Tutor',
-      'Politeknik Negeri Batam',
-      'Politeknik Negeri Bandung',
-      'Universitas 17 Agustus 1945 Samarinda',
-      'Universitas Muhammadiyah Pare-Pare',
+      'Universitas Terbuka — Online Tutor',
+      'Politeknik Negeri Batam — Practitioner Lecturer',
+      'Universitas Trunojoyo Madura (UTM) — Industry Practitioner / Praktisi Mengajar',
+      'Universitas Singaperbangsa Karawang (UNSIKA) — Industry Practitioner / Praktisi Mengajar',
     ],
   },
 }

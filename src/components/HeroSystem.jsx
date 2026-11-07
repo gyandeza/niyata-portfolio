@@ -3,7 +3,7 @@ export default function HeroSystem() {
     <div className="system-board" aria-label="Niyata operating model">
       <div className="board-topline">
         <span>NIYATA / SYSTEM MAP</span>
-        <span>V2.1</span>
+        <span>V3.0</span>
       </div>
 
       <div className="board-stage">

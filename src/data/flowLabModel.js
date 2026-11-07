@@ -93,6 +93,7 @@ export function calculateFlowModel(input) {
   const spareCapacity = Math.max(0, deliverableSupply - demand)
   const coveragePct = demand > 0 ? (deliverableSupply / demand) * 100 : 100
 
+  const initialStockExcess = Math.max(0, safe.initialStock - Math.max(0, safe.stockpileCapacity))
   const rawEndStock = availableMaterial - plannedDispatch
   const endStock = clamp(rawEndStock, 0, Math.max(0, safe.stockpileCapacity))
   const overflow = Math.max(0, rawEndStock - Math.max(0, safe.stockpileCapacity))
@@ -110,8 +111,13 @@ export function calculateFlowModel(input) {
 
   if (overflow > 0) {
     constraint = 'BUFFER OVERFLOW'
+    constraintDetail = initialStockExcess > 0
+      ? 'Initial source stock already exceeds buffer capacity. End-of-day material also exceeds modeled storage capacity. Correct the starting stock/capacity assumption and review dispatch or collection pace.'
+      : 'Material inflow exceeds modeled dispatch and storage capacity. Review collection pace, dispatch capacity or buffer size.'
+  } else if (initialStockExcess > 0) {
+    constraint = 'INITIAL BUFFER OVER CAPACITY'
     constraintDetail =
-      'Material inflow exceeds modeled dispatch and storage capacity. Review collection pace, dispatch capacity or buffer size.'
+      'Initial source stock exceeds physical buffer capacity, even though the modeled end-of-day balance is within capacity. Correct the starting condition before interpreting this scenario.'
   } else if (unmetDemand > 0) {
     const materialLimited = availableMaterial <= transportCapacity
     if (materialLimited) {
@@ -152,6 +158,7 @@ export function calculateFlowModel(input) {
     coveragePct,
     endStock,
     endStockPct,
+    initialStockExcess,
     overflow,
     effectiveTonsPerUnitDay,
     requiredFleet,
@@ -179,7 +186,7 @@ export const modelAssumptions = [
   {
     id: 'A-04',
     title: 'Source buffer model',
-    copy: 'Initial stock plus daily collection forms the material available to dispatch. The tool does not model a destination inventory balance.',
+    copy: 'Initial stock plus daily collection forms the material available to dispatch. Initial stock above buffer capacity is flagged separately. The model checks end-of-day stock, not intraday stock peaks, and does not model destination inventory.',
   },
   {
     id: 'A-05',

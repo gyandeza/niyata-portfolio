@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { routeRiskBands, routeRiskFactors } from '../data/routeRisk'
+import { calculateRouteRiskDecision, routeRiskFactors } from '../data/routeRisk'
 
 function initialValues() {
   return Object.fromEntries(routeRiskFactors.map((factor) => [factor.key, factor.options[0].value]))
@@ -8,15 +8,10 @@ function initialValues() {
 export default function RouteRiskCalculator() {
   const [values, setValues] = useState(initialValues)
 
-  const score = useMemo(() => {
-    const raw = routeRiskFactors.reduce(
-      (sum, factor) => sum + values[factor.key] * factor.weight,
-      0,
-    )
-    return Math.round(raw)
-  }, [values])
-
-  const band = routeRiskBands.find((item) => score <= item.max) || routeRiskBands[2]
+  const { score, band, override, weightedBand } = useMemo(
+    () => calculateRouteRiskDecision(values),
+    [values],
+  )
 
   function updateFactor(key, value) {
     setValues((current) => ({ ...current, [key]: Number(value) }))
@@ -79,6 +74,7 @@ export default function RouteRiskCalculator() {
             <strong>{band.label}</strong>
           </div>
 
+          {override && <p className="rr-hard-stop" role="alert">{override}: Weighted score {score}/100 ({weightedBand.label}) is not dispatch clearance.</p>}
           <p className="rr-recommendation">{band.recommendation}</p>
 
           <div className="rr-formula">

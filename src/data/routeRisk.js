@@ -99,3 +99,47 @@ export const routeRiskBands = [
       'Conditions are in the prototype high-risk band. Delay or reroute and escalate according to the applicable safety and operational procedure.',
   },
 ]
+
+/**
+ * A weighted risk score is descriptive, not dispatch clearance.
+ * Conservative safety overrides prevent a blocked/unverified route or
+ * critical safety warning from being softened by low scores elsewhere.
+ * All values remain illustrative, not operationally calibrated.
+ */
+export function calculateRouteRiskDecision(values) {
+  const score = Math.round(routeRiskFactors.reduce(
+    (sum, factor) => sum + Number(values[factor.key] ?? factor.options[0].value) * factor.weight,
+    0,
+  ))
+  const weightedBand = routeRiskBands.find((item) => score <= item.max) || routeRiskBands[2]
+
+  if (Number(values.accessibility) === 90) {
+    return {
+      score,
+      weightedBand,
+      band: {
+        key: 'hold',
+        label: 'HOLD — ACCESS NOT VERIFIED',
+        action: 'DO NOT DISPATCH / VERIFY ACCESS',
+        recommendation:
+          'Blocked or unverified access overrides the weighted score. Do not dispatch on this route until access is independently verified, restrictions are resolved and authorized approval is obtained.',
+      },
+      override: 'ACCESSIBILITY HARD STOP',
+    }
+  }
+  if (Number(values.safety) === 90) {
+    return {
+      score,
+      weightedBand,
+      band: {
+        key: 'hold',
+        label: 'HOLD — CRITICAL SAFETY',
+        action: 'DO NOT DISPATCH / ESCALATE',
+        recommendation:
+          'A critical safety warning overrides the weighted score. Hold dispatch and escalate for field verification and authorized safety clearance.',
+      },
+      override: 'SAFETY HARD STOP',
+    }
+  }
+  return { score, weightedBand, band: weightedBand, override: null }
+}

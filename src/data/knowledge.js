@@ -18,7 +18,7 @@ export const researchWriting = {
       title: 'Supply Chain Decision Intelligence',
       status: 'IN PROGRESS',
       copy:
-        'Research direction around how operational signals, uncertainty and decision rules can be structured into transparent support for complex supply-chain decisions.',
+        'An ongoing research direction exploring how operational signals, uncertainty and decision rules can support transparent supply-chain decisions.',
       boundary:
         'Public description only. Unreleased model details, novelty claims and enterprise data remain outside the portfolio.',
     },
@@ -45,7 +45,7 @@ export const researchWriting = {
       title: 'Decision Models, GIS & Regional Intelligence',
       status: 'IN PROGRESS',
       copy:
-        'Explainable regional-readiness and logistics intelligence through composite indicators, GIS context and scenario analysis.',
+        'Ongoing applied research and prototype development exploring explainable regional-readiness assessment, GIS context and scenario analysis.',
       boundary:
         'Represented publicly through ILRAS and related methodology notes.',
     },
@@ -105,24 +105,22 @@ export const researchWriting = {
 export const teachingSpeaking = {
   hero: {
     eyebrow: 'TEACHING & SPEAKING',
-    title: 'Translate practice into learning people can use.',
+    title: 'Connecting Industry Practice with Academic Learning.',
     copy:
-      'My teaching and speaking work connects management and engineering frameworks with the realities of operations, projects and digital change.',
+      'My teaching experience includes contributions as an online tutor, practitioner lecturer and industry practitioner in higher education, connecting engineering and management concepts with real-world operational challenges.',
   },
-  current: [
+  featured: [
     {
-      role: 'Tutor',
+      role: 'Online Tutor',
       institution: 'Universitas Terbuka',
-      period: 'Current',
-      subjects: ['Hubungan Industrial', 'Manajemen Operasi Jasa'],
-      note: 'Online tutorial facilitation, discussion feedback and applied management learning.',
+      subjects: ['Industrial Relations (Hubungan Industrial)', 'Service Operations Management (Manajemen Operasi Jasa)'],
+      note: 'Facilitating online academic discussions, providing assignment feedback and connecting management concepts with practical organizational contexts.',
     },
   ],
-  earlier: [
-    'Politeknik Negeri Batam',
-    'Politeknik Negeri Bandung',
-    'Universitas 17 Agustus 1945 Samarinda',
-    'Universitas Muhammadiyah Pare-Pare',
+  otherInstitutions: [
+    'Politeknik Negeri Batam — Practitioner Lecturer',
+    'Universitas Trunojoyo Madura (UTM) — Industry Practitioner / Praktisi Mengajar',
+    'Universitas Singaperbangsa Karawang (UNSIKA) — Industry Practitioner / Praktisi Mengajar',
   ],
   themes: [
     {

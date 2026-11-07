@@ -42,13 +42,13 @@ export default function TeachingSpeakingPage() {
           <div className="knowledge-section-label"><span>01</span><p>TEACHING EXPERIENCE</p></div>
           <div className="teaching-current-grid">
             <div>
-              <p className="knowledge-kicker">CURRENT</p>
+              <p className="knowledge-kicker">ACADEMIC ENGAGEMENT</p>
               <h2>Teaching should connect theory to the decisions people actually face.</h2>
             </div>
             <div className="teaching-current-card">
-              {ts.current.map((item) => (
+              {ts.featured.map((item) => (
                 <article key={item.institution}>
-                  <div><span>{item.role}</span><small>{item.period}</small></div>
+                  <div><span>{item.role}</span></div>
                   <h3>{item.institution}</h3>
                   <ul>{item.subjects.map((subject) => <li key={subject}>{subject}</li>)}</ul>
                   <p>{item.note}</p>
@@ -57,8 +57,8 @@ export default function TeachingSpeakingPage() {
             </div>
           </div>
           <div className="teaching-earlier">
-            <span>EARLIER PRACTITIONER TEACHING</span>
-            <div>{ts.earlier.map((item, i) => <p key={item}><small>0{i+1}</small><strong>{item}</strong></p>)}</div>
+            <span>ADDITIONAL SELECTED INSTITUTIONS</span>
+            <div>{ts.otherInstitutions.map((item, i) => <p key={item}><small>0{i+1}</small><strong>{item}</strong></p>)}</div>
           </div>
         </section>
 
