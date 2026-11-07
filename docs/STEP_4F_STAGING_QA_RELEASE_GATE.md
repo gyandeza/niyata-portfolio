@@ -1,7 +1,7 @@
 # STEP 4F — Staging QA & Release Gate
 
 **Current disposition: HOLD — evidence closure and release planning remain pending.**
-**Updated:** 2026-11-07 (Asia/Jakarta).
+**Updated:** 2026-11-08 (Asia/Jakarta). Section 9 records the subsequent owner decisions and authorized CI hardening.
 **Acceptance owner:** project/content owner, acting through the project conversation.
 **Scope of this update:** documentation and PR description only, authorized by the owner's continuation after the read-only audit. No application, dependency, CI or hosting configuration changes are included.
 
@@ -107,7 +107,7 @@ Before release, establish the intended production project/environment/domains, w
 - [x] Correct the maturity-statement display caveat.
 - [x] Consolidate current status and minimize private investigation metadata.
 - [ ] Verify latest documentation HEAD checks and preview after this update.
-- [ ] Bind final owner visual acceptance explicitly to the audited application SHA/immutable URL.
+- [x] Bind final owner visual acceptance explicitly to the audited application SHA/immutable URL (section 9).
 - [ ] Resolve or explicitly accept dependency reproducibility and branch-enforcement risks.
 - [ ] Establish merge-trigger behavior, production target and recovery procedure.
 - [ ] Obtain separate explicit merge approval.
@@ -120,7 +120,7 @@ Before release, establish the intended production project/environment/domains, w
 | Prior public investigation metadata remains in Git history | Medium privacy residual | Owner decides whether further remediation is necessary; no history rewrite authorized |
 | No lockfile; npm install with dependency ranges | Medium build reproducibility | Maintainer remedies under separate code/CI scope or owner explicitly accepts rebuild variability |
 | Main unprotected and checks not enforced | Medium release control | Owner authorizes enforcement changes or explicitly accepts documented manual controls |
-| Final visual evidence lacks immutable candidate binding | Evidence gap | Owner identifies candidate SHA/URL covered by acceptance |
+| Original final visual evidence lacked immutable candidate binding | Closed for the audited application candidate | Owner explicitly confirmed SHA/URL in section 9; a dependency rebuild is separate evidence |
 | No verified production baseline/rollback | High for release | Release owner establishes first-release and recovery plan |
 | Security/visual/credential/legacy evidence has limited coverage | Scope limitation | Preserve evidence labels; do not claim independent certification or exhaustive clearance |
 | CI deprecation warnings | Low maintenance risk | Maintainer schedules action/runtime hardening separately |
@@ -133,3 +133,25 @@ Before release, establish the intended production project/environment/domains, w
 Next gate: verify this documentation revision and its checks, obtain explicit candidate binding and disposition of residual build/control risks, and complete read-only production/merge-trigger/recovery planning. Code/CI changes, branch protection changes and hosting changes require separate scope authorization.
 
 Merge, production deployment/promotion, Vercel protection changes and destructive historical-hosting actions remain separately gated. Documentation approval or a READY preview does not authorize them.
+
+## 9. STEP 4F.7D follow-up — owner decisions and build hardening (2026-11-08)
+
+This section supersedes the earlier pending candidate-binding statement and records the additional authorized scope.
+
+- The owner explicitly confirmed that Research/ILRAS and About/Credentials visual acceptance covers application commit `9a659b63da07b317299b735d25007cf6d8412fe1` at https://niyata-portfolio-preview-83k184u6i-giona.vercel.app. Classification: **owner-confirmed**, not independent visual QA.
+- The owner authorized lockfile/CI improvements and main protection requiring a PR and successful CI. This does not authorize merge, production, or Vercel protection changes.
+- Added npm lockfile v3, retaining the existing package.json version ranges. Resolved direct versions: React/React DOM 19.3.1, Vite 7.3.7, @vitejs/plugin-react 5.2.0. All resolved package URLs use registry.npmjs.org. These versions are a fresh resolution of the existing ranges, not a reconstruction of the historical preview dependency tree.
+- CI installs with `npm ci` and pins official actions/checkout v7.0.1 and actions/setup-node v7.1.0 to commit SHAs. Checkout credential persistence and automatic package-manager caching are disabled. Application Node remains 22; the actions use Node 24 internally.
+- Local clean installation reported zero vulnerabilities. Build, 7 Flow Lab + 3 RouteRisk fixtures, nine-entrypoint/75-link smoke and artifact guard passed on local Node 24.15.0 / npm 11.12.1. Hosted Node 22 CI must be verified after pushing.
+- Application source and package.json are unchanged. Dependency resolution can still change browser behavior; owner acceptance of the historical preview is not automatically acceptance of this rebuilt artifact. A targeted rebuild regression check remains pending.
+- Main protection is **authorized but not applied**: the GitHub connector has no administration mutation tool, and browser fallback could not obtain a usable authenticated administration session. No branch-enforcement change is claimed.
+- Read-only Vercel inspection found one attached project domain, `niyata-portfolio-preview.vercel.app`, verified, without a branch binding; no custom domain was returned. The project is still protected by SSO for all deployments. The current project response omits production-branch/auto-assignment configuration. Dashboard verification remains pending because the in-app browser is signed out.
+- Historical main deployment metadata shows a canceled production-target build. This supports treating a merge as potentially release-triggering; it does not prove the current production-branch setting. Do not merge until that setting and domain assignment behavior are verified.
+
+**Proposed main policy, not yet applied:** require pull requests and successful GitHub Actions `validate`, require branches to be up to date, block force pushes/deletions and enforce the rule for administrators. Do not require an additional human approval for this single-owner repository unless the owner requests it. This preserves the owner's separate merge decision without inventing an unavailable second reviewer.
+
+**Proposed first-release sequence, not executed:** confirm the production project/branch/domain; establish controlled behavior for merges; prepare a production-target build without assigning domains; test that build; record a recovery method and its limits; obtain separate release approval; then promote the tested production build and verify routes, assets, lab behavior, access and aliases. Preview promotion may create a new production build, so preview visual acceptance alone is insufficient.
+
+**Recovery boundary:** there is still no verified successful production baseline. The old staging build predates safeguards and is not an approved rollback. Keep historical hosting unchanged. Before first release, approve either an eligible tested production fallback or a tested restoration/withdrawal procedure; do not promise instant rollback without verifying eligibility.
+
+**Disposition:** application-candidate visual binding CLOSED (owner-confirmed); lockfile/CI implementation locally PASS, hosted checks pending; main enforcement and production configuration remain pending. Overall merge/production HOLD. Post-commit CI and deployment evidence belongs in the PR description to avoid a self-referential documentation-commit loop.
